@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da velha</title>
+    <link rel="stylesheet" href="./jogoDaVelha_estilo.css">
+</head>
+<body>
+    <section>
+        <div id="game"></div>
+        <div id="control">
+            <div id="center">
+                <div id="logo"></div>
+            </div>
+            <div id="left">
+                <div id="circleL">
+                    <div id="selectButton" onmousedown="buttonPressed('Select')" onkeydown="buttonPressed('Select')" onmouseup="def('Select')"></div>
+                    <p>SELECT &nbsp;&nbsp;&nbsp; START</p>
+                    <div id="upButton" onmousedown="buttonPressed('Up')" onmouseup="def('Up')">
+                        <div id="triangleUp"></div>
+                    </div>
+                    <div id="rightButton" onmousedown="buttonPressed('Right')" onmouseup="def('Right')">
+                        <div id="triangleRight"></div>
+                    </div>
+                    <div id="downButton" onmousedown="buttonPressed('Down')" onmouseup="def('Down')">
+                        <div id="triangleDown"></div>
+                    </div> 
+                    <div id="leftButton" onmousedown="buttonPressed('Left')" onmouseup="def('Left')">
+                        <div id="triangleLeft"></div>
+                    </div>
+                    <div id="middle1"></div>
+                    <div id="middle2">
+                        <div id=circle-joystick></div>
+                    </div>
+                </div>
+            </div>
+            <div id="right">
+                <div id="circleR">
+                    <div id="topButtons">
+                        <div id="xButton" onmousedown="buttonPressed('X')" onmouseup="def('X')"></div>
+                        <div id="yButton" onmousedown="buttonPressed('Y')" onmouseup="def('Y')"></div>
+                    </div>
+                    <div id="bottomButtons">
+                        <div id="aButton" onmousedown="buttonPressed('A')" onmouseup="def('A')"></div>
+                        <div id="bButton" onmousedown="buttonPressed('B')" onmouseup="def('B')"></div>
+                    </div>
+                    <div id="startButton" onmousedown="buttonPressed('Start')" onmouseup="def('Start')"></div>
+                    <p id=xButton>X</p>
+                    <p id=yButton>Y</p>
+                    <p id=aButton>A</p>
+                    <p id=bButton>B</p>
+                </div>
+            </div>  
+        </div>
+        <div id="audios">
+            <audio src="./media/win.mp3" id="win"></audio>
+            <audio src="./media/draw.mp3" id="draw"></audio>
+            <audio src="./media/select.mp3" id="select0"></audio>
+            <audio src="./media/select.mp3" id="select1"></audio>
+            <audio src="./media/select.mp3" id="select2"></audio>
+            <audio src="./media/select.mp3" id="select3"></audio>
+            <audio src="./media/select.mp3" id="select4"></audio>
+            <audio src="./media/accept.mp3" id="accept0"></audio>
+            <audio src="./media/accept.mp3" id="accept1"></audio>
+            <audio src="./media/accept.mp3" id="accept2"></audio>
+        </div>
+        <li id="default"></li> 
+    </section>
+    
+    <footer>
+        &copy; 2021 - by Pablo Martins
+    </footer>
+    <script src="./jogoDaVelha_script.js"></script>
+</body>
+</html>
