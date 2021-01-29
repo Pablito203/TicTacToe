@@ -1,4 +1,4 @@
-var inicio = ''; // selecionar a primeira opção da tela
+var inicio = ''; // Voltar opções para o padrão ou selecionar a primeira opção da tela
 var menuOption = 1;
 var player1 = {
     char: 0,
@@ -331,25 +331,21 @@ function buttonPressed(button) {
         case "Select":
             buttonAnimation = document.querySelector('div#selectButton')
             buttonAnimation.style.boxShadow = '0.5px 1px 1px'
+            audioAcception()
             switch (tv) {
                 case "mainMenu":
-                    audioAcception()
                     interface("off")
                     break
                 case "play":
-                    audioAcception()
                     interface("mainMenu")
                     break
                 case "howToPlay":
-                    audioAcception()
                     interface("mainMenu")
                     break
                 case "info":
-                    audioAcception()
                     interface("mainMenu")
                     break
                 case "jogoDaVelha":
-                    audioAcception()
                     turn = 1
                     playchar1.innerText = ''
                     playchar2.innerText = ''
@@ -363,35 +359,29 @@ function buttonPressed(button) {
             buttonAnimation.style.left = '46px'
             buttonAnimation.style.margin = '1px'
             buttonAnimation.style.marginBottom = '2px'
-            if (tv == "mainMenu") {
+            if (tv == "mainMenu" && menuOption != 1) {
                 menu((menuOption - 1))
             } else if (tv == "play"){
                 if (player1.charSelected == false) {
-                    if (player1.char == 0 || player1.char == 4 || player1.char == 8 || player1.char == 12 || player1.char == 16) {
-
-                    } else {
+                    if (player1.char != 0 && player1.char != 4 && player1.char != 8 && player1.char != 12 && player1.char != 16) {
                         player1.char--
                         audioSelection()
                         selectCharacter(player1.char)
                     }
                 } else {
-                    if (player2.char == 0 || player2.char == 4 || player2.char == 8 || player2.char == 12 || player2.char == 16) {
-                        
-                    } else {
+                    if (player2.char != 0 && player2.char != 4 && player2.char != 8 && player2.char != 12 && player2.char != 16) {
                         if (player1.selection + 1 != player2.char) {
                             player2.char--
                             audioSelection()
                             selectCharacter(player2.char)
                         }
-                    }    
+                    }   
                 }
             } else if (tv == "jogoDaVelha") {
-                if (slot == 0 || slot == 1 || slot == 2 ) {
-                     
-                } else {
+                if (slot != 0 && slot != 1 && slot != 2 ) {
                     slot -= 3
                     audioSelection()
-                    selectCasa(slot)
+                    selectCasa(slot)     
                 }
             }
             break;
@@ -402,31 +392,25 @@ function buttonPressed(button) {
             buttonAnimation.style.margin = '1px'
             if (tv == "play"){
                 if (player1.charSelected == false) {
-                    if (player1.char == 16 || player1.char == 17 || player1.char == 18 || player1.char == 15 || player1.char == 16) {
-                
-                    } else {
+                    if (player1.char != 16 && player1.char != 17 && player1.char != 18 && player1.char != 15 && player1.char != 16) {
                         player1.char += 4
                         audioSelection()
                         selectCharacter(player1.char)
                     }
                 } else {
-                    if (player2.char == 16 || player2.char == 17 || player2.char == 18 || player2.char == 15 || player2.char == 16) {
-                
-                    } else {
+                    if (player2.char != 16 && player2.char != 17 && player2.char != 18 && player2.char != 15 && player2.char != 16) {
                         if (player1.selection - 4 != player2.char) {
                             player2.char += 4
                             audioSelection()
                             selectCharacter(player2.char)
                         }
-                    }   
+                    }  
                 }
             } else if (tv == "jogoDaVelha") {
-                if (slot == 2 || slot == 5 || slot == 8 ) {
-                     
-                } else {
+                if (slot != 2 && slot != 5 && slot != 8 ) {
                     slot++
                     audioSelection()
-                    selectCasa(slot)
+                    selectCasa(slot)     
                 }
             }
             break;
@@ -436,21 +420,17 @@ function buttonPressed(button) {
             buttonAnimation.style.top = '-67px'
             buttonAnimation.style.left = '46.9px'
             buttonAnimation.style.margin = '1px'
-            if (tv == "mainMenu") {
+            if (tv == "mainMenu" && menuOption != 3) {
                 menu((menuOption + 1))
             } else if (tv == "play"){
                 if (player1.charSelected == false) {
-                    if (player1.char == 2 || player1.char == 7 || player1.char == 11 || player1.char == 15 || player1.char == 18) {
-                
-                    } else {
+                    if (player1.char != 2 && player1.char != 7 && player1.char != 11 && player1.char != 15 && player1.char != 18) {
                         player1.char++
                         audioSelection()
                         selectCharacter(player1.char)
-                    }
+                    } 
                 } else {
-                    if (player2.char == 2 || player2.char == 7 || player2.char == 11 || player2.char == 15 || player2.char == 18) {
-                
-                    } else {
+                    if (player2.char != 2 && player2.char != 7 && player2.char != 11 && player2.char != 15 && player2.char != 18) {
                         if (player1.selection - 1 != player2.char) {
                             player2.char++
                             audioSelection()
@@ -459,9 +439,7 @@ function buttonPressed(button) {
                     }   
                 }
             } else if (tv == "jogoDaVelha") {
-                if (slot == 6 || slot == 7 || slot == 8 ) {
-                     
-                } else {
+                if (slot != 6 && slot != 7 && slot != 8 ) {
                     slot += 3
                     audioSelection()
                     selectCasa(slot)
@@ -476,32 +454,26 @@ function buttonPressed(button) {
             buttonAnimation.style.margin = '1px'
             if (tv == "play"){
                 if (player1.charSelected == false) {
-                    if (player1.char == 0 || player1.char == 1 || player1.char == 2 || player1.char == 7) {
-                
-                    } else {
+                    if (player1.char != 0 && player1.char != 1 && player1.char != 2 && player1.char != 7) {
                         player1.char -= 4
                         audioSelection()
                         selectCharacter(player1.char)
                     }
                 } else {
-                    if (player2.char == 0 || player2.char == 1 || player2.char == 2 || player2.char == 7) {
-                
-                    } else {
+                    if (player2.char != 0 && player2.char != 1 && player2.char != 2 && player2.char != 7) {
                         if (player1.selection + 4 != player2.char) {
-                        player2.char -= 4
-                        audioSelection()
-                        selectCharacter(player2.char)
-                        }
-                    }   
+                            player2.char -= 4
+                            audioSelection()
+                            selectCharacter(player2.char)
+                            }
+                    }
                 }
             } else if (tv == "jogoDaVelha") {
-                if (slot == 0 || slot == 3 || slot == 6 ) {
-                     
-                } else {
+                if (slot != 0 && slot != 3 && slot != 6 ) {
                     slot--
                     audioSelection()
-                    selectCasa(slot)
-                }
+                    selectCasa(slot)  
+                } 
             }
             break;
     }
@@ -563,113 +535,79 @@ function def(button) { // voltar os botões do controle para o padrão durante a
 }
 
 function selectCharacter(personagem) {
+    inicio.style.background = 'rgb(0, 20, 134)'
     if (player1.charSelected == false) {
+        char[personagem].style.background = 'greenyellow' 
         switch (personagem) {
             case 0:
-                char[personagem].style.background = 'greenyellow' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char0')
                 playchar1.innerText = '\u{274C}'
                 break
             case 1:
-                char[personagem].style.background = 'greenyellow' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char1')
                 playchar1.innerText = '\u{1F9E1}'
                 break
             case 2:
-                char[personagem].style.background = 'greenyellow' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char2')
                 playchar1.innerText = '\u{1F409}'
                 break
             case 4:
-                char[personagem].style.background = 'greenyellow' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char4')
                 playchar1.innerText = '\u{1F4A9}'
                 break
             case 5:
-                char[personagem].style.background = 'greenyellow' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char5')
                 playchar1.innerText = '\u{1F921}'
                 break
             case 6:
-                char[personagem].style.background = 'greenyellow' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char6')
                 playchar1.innerText = '\u{1F47B}'
                 break
             case 7:
-                char[personagem].style.background = 'greenyellow' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char7')
                 playchar1.innerText = '\u{1F47D}'
                 break
             case 8:
-                char[personagem].style.background = 'greenyellow' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char8')
                 playchar1.innerText = '\u{1F525}'
                 break
             case 9:
-                char[personagem].style.background = 'greenyellow' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char9')
                 playchar1.innerText = '\u{1F4A6}'
                 break
             case 10:
-                char[personagem].style.background = 'greenyellow' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char10')
                 playchar1.innerText = '\u{1F4A8}'
                 break
             case 11:
-                char[personagem].style.background = 'greenyellow'
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char11')
                 playchar1.innerText = '\u{1F30D}'
                 break
             case 12:
-                char[personagem].style.background = 'greenyellow' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char12')
                 playchar1.innerText = '\u{1F4A3}'
                 break
             case 13:
-                char[personagem].style.background = 'greenyellow' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char13')
                 playchar1.innerText = '\u{1F340}'
                 break
             case 14:
-                char[personagem].style.background = 'greenyellow' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char14')
                 playchar1.innerText = '\u{1F6F9}'
                 break
             case 15:
-                char[personagem].style.background = 'greenyellow'
-                inicio.style.background = 'rgb(0, 20, 134)' 
                 inicio = document.querySelector('li#char15')
                 playchar1.innerText = '\u{26BD}'
                 break
             case 16:
-                char[personagem].style.background = 'greenyellow'
-                inicio.style.background = 'rgb(0, 20, 134)' 
                 inicio = document.querySelector('li#char16')
                 playchar1.innerText = '\u{2B55}'
                 break
             case 17:
-                char[personagem].style.background = 'greenyellow'
-                inicio.style.background = 'rgb(0, 20, 134)' 
                 inicio = document.querySelector('li#char17')
                 playchar1.innerText = '\u{1F49B}'
                 break
             case 18:
-                char[personagem].style.background = 'greenyellow' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char18')
                 playchar1.innerText = '\u{1F996}'
                 break
@@ -677,112 +615,77 @@ function selectCharacter(personagem) {
         player1.character = char[player1.char].value
         player1.selection = personagem
     } else {
+        char[personagem].style.background = 'red' 
         switch (personagem) {
             case 0:
-                char[personagem].style.background = 'red' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char0')
                 playchar2.innerText = '\u{274C}'
                 break
             case 1:
-                char[personagem].style.background = 'red' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char1')
                 playchar2.innerText = '\u{1F9E1}'
                 break
             case 2:
-                char[personagem].style.background = 'red' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char2')
                 playchar2.innerText = '\u{1F409}'
                 break
             case 4:
-                char[personagem].style.background = 'red' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char4')
                 playchar2.innerText = '\u{1F4A9}'
                 break
             case 5:
-                char[personagem].style.background = 'red' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char5')
                 playchar2.innerText = '\u{1F921}'
                 break
             case 6:
-                char[personagem].style.background = 'red' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char6')
                 playchar2.innerText = '\u{1F47B}'
                 break
             case 7:
-                char[personagem].style.background = 'red' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char7')
                 playchar2.innerText = '\u{1F47D}'
                 break
             case 8:
-                char[personagem].style.background = 'red' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char8')
                 playchar2.innerText = '\u{1F525}'
                 break
             case 9:
-                char[personagem].style.background = 'red' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char9')
                 playchar2.innerText = '\u{1F4A6}'
                 break
             case 10:
-                char[personagem].style.background = 'red' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char10')
                 playchar2.innerText = '\u{1F4A8}'
                 break
             case 11:
-                char[personagem].style.background = 'red'
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char11')
                 playchar2.innerText = '\u{1F30D}'
                 break
             case 12:
-                char[personagem].style.background = 'red' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char12')
                 playchar2.innerText = '\u{1F4A3}'
                 break
             case 13:
-                char[personagem].style.background = 'red' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char13')
                 playchar2.innerText = '\u{1F340}'
                 break
             case 14:
-                char[personagem].style.background = 'red' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char14')
                 playchar2.innerText = '\u{1F6F9}'
                 break
             case 15:
-                char[personagem].style.background = 'red'
-                inicio.style.background = 'rgb(0, 20, 134)' 
                 inicio = document.querySelector('li#char15')
                 playchar2.innerText = '\u{26BD}'
                 break
             case 16:
-                char[personagem].style.background = 'red'
-                inicio.style.background = 'rgb(0, 20, 134)' 
                 inicio = document.querySelector('li#char16')
                 playchar2.innerText = '\u{2B55}'
                 break
             case 17:
-                char[personagem].style.background = 'red'
-                inicio.style.background = 'rgb(0, 20, 134)' 
                 inicio = document.querySelector('li#char17')
                 playchar2.innerText = '\u{1F49B}'
                 break
             case 18:
-                char[personagem].style.background = 'red' 
-                inicio.style.background = 'rgb(0, 20, 134)'
                 inicio = document.querySelector('li#char18')
                 playchar2.innerText = '\u{1F996}'
                 break
@@ -798,11 +701,11 @@ function selectCasa(casa) {
 }
 
 function interface(tela) {
+    for (var c = 0; c <= elements; c++){
+        screen.removeChild(screen.children[0])
+    }
     switch (tela) {
         case 'off': // Tela inicial
-            for (var c = 0; c <= elements; c++){
-                screen.removeChild(screen.children[0])
-            }
             screen.style.background = 'black'
             var p = document.createElement('p')
             p.innerText = "Pressione START para jogar"
@@ -813,9 +716,6 @@ function interface(tela) {
             break
         case 'mainMenu': // Menu Principal
             menuOption = 1
-            for (var c = 0; c <= elements; c++){
-                screen.removeChild(screen.children[0])
-            }
             if (tv != "mainMenu" ) {
                 let play = document.createElement('div')
                 play.setAttribute('id', 'playButton')
@@ -865,9 +765,6 @@ function interface(tela) {
             backgroundColor(bdcolor)
             break
         case "howToPlay": // Como jogar
-            for (var c = 0; c <= elements; c++){
-                screen.removeChild(screen.children[0])
-            }
             var how = document.createElement('h1')
             how.innerText = 'COMO JOGAR'
             how.style.textAlign = 'center'
@@ -894,9 +791,6 @@ function interface(tela) {
             tv = "howToPlay"
             break
         case "info": // Informações sobre o jogo
-            for (var c = 0; c <= elements; c++){
-                screen.removeChild(screen.children[0])
-            }
             var info = document.createElement('h1')
             info.innerHTML = "SOBRE O JOGO <br><br>"
             info.style.textAlign = 'center'
@@ -938,9 +832,6 @@ function interface(tela) {
             player1Win = 0
             drawGame = 0
             player2Win = 0
-            for (var c = 0; c <= elements; c++){
-                screen.removeChild(screen.children[0])
-            }
             if (tv != "play" ) {
                 var characters1 = document.createElement('ul')
                 characters1.setAttribute('id', 'um')
@@ -1082,9 +973,6 @@ function interface(tela) {
             for (var c = 0; c <= 8; c++) {
                 casaSelected[c] = 0 
             }
-            for (var c = 0; c <= elements; c++){
-                screen.removeChild(screen.children[0])
-            }
             if (tv != "jogoDaVelha") {
                 var win1 = document.createElement('div')
                 win1.setAttribute('id', 'winsUm')
@@ -1156,28 +1044,24 @@ function audioAcception() {
 
 function menu(option) {
     let button = document.querySelector('div#playButton')
+    audioSelection()
+    inicio.style.background = 'rgb(168, 167, 167)'
     switch (option) {
         case 1:
-            audioSelection()
             button = document.querySelector('div#playButton')
             button.style.background = 'rgb(238, 255, 0)'
-            inicio.style.background = 'rgb(168, 167, 167)'
             inicio = document.querySelector('div#playButton')
             menuOption = 1
             break
         case 2:
-            audioSelection()
             button = document.querySelector('div#howButton')
             button.style.background = 'rgb(238, 255, 0)'
-            inicio.style.background = 'rgb(168, 167, 167)'
             inicio = document.querySelector('div#howButton')
             menuOption = 2
             break
         case 3:
-            audioSelection()
             button = document.querySelector('div#infoButton')
             button.style.background = 'rgb(238, 255, 0)'
-            inicio.style.background = 'rgb(168, 167, 167)'
             inicio = document.querySelector('div#infoButton')
             menuOption = 3
             break
