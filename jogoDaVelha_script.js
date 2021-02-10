@@ -49,6 +49,81 @@ if (tv == "play" && player1.charSelected == false) {
     inicio = document.querySelector('li#char16')
 }
 
+document.addEventListener('keydown', handleKeydown)
+document.addEventListener('keyup', handleKeyup)
+
+function handleKeyup(event) {
+    const keyPressed = event.key
+    switch (keyPressed) {
+        case 'ArrowDown':
+            def('Down')
+            break 
+        case 'ArrowUp':
+            def('Up')
+            break
+        case 'ArrowRight':
+            def('Right')
+            break
+        case 'ArrowLeft':
+            def('Left')
+            break
+        case 'Enter':
+            def('Start')
+            break
+        case 'Shift':
+            def('Select')
+            break
+        case 'a':
+            def('A')
+            break
+        case 's':
+            def('B')
+            break
+        case 'd':
+            def('Y')
+            break
+        case 'w':
+            def('X')
+            break
+    }
+}
+
+function handleKeydown(event) {
+    const keyPressed = event.key
+    switch (keyPressed) {
+        case 'ArrowDown':
+            buttonPressed('Down')
+            break 
+        case 'ArrowUp':
+            buttonPressed('Up')
+            break
+        case 'ArrowRight':
+            buttonPressed('Right')
+            break
+        case 'ArrowLeft':
+            buttonPressed('Left')
+            break
+        case 'Enter':
+            buttonPressed('Start')
+            break
+        case 'Shift':
+            buttonPressed('Select')
+            break
+        case 'a':
+            buttonPressed('A')
+            break
+        case 's':
+            buttonPressed('B')
+            break
+        case 'd':
+            buttonPressed('Y')
+            break
+        case 'w':
+            buttonPressed('X')
+            break
+            }
+        }
+
 function buttonPressed(button) {
     let buttonAnimation = ''
     switch (button) {
@@ -177,7 +252,6 @@ function buttonPressed(button) {
                         player2.character = '\u{1F996}'
                         break
                 }
-                console.log(player2.character)
                 if (player2.charSelected == true && tv == "play") {
                     interface("jogoDaVelha")
                     selectCasa(slot)
@@ -296,8 +370,6 @@ function buttonPressed(button) {
                         document.querySelector('div#vez').innerText = `VEZ DE ${player2.character}`
                     }
                 }
-                console.log(casaSelected)
-                console.log(tv)
             }
             break;
         case "B":
@@ -331,7 +403,9 @@ function buttonPressed(button) {
         case "Select":
             buttonAnimation = document.querySelector('div#selectButton')
             buttonAnimation.style.boxShadow = '0.5px 1px 1px'
-            audioAcception()
+            if (tv != "off") {
+                audioAcception()
+            }
             switch (tv) {
                 case "mainMenu":
                     interface("off")
@@ -419,7 +493,7 @@ function buttonPressed(button) {
             buttonAnimation.style.border = '3.9px solid black'
             buttonAnimation.style.top = '-67px'
             buttonAnimation.style.left = '46.9px'
-            buttonAnimation.style.margin = '1px'
+            buttonAnimation.style.marginTop = '2px'
             if (tv == "mainMenu" && menuOption != 3) {
                 menu((menuOption + 1))
             } else if (tv == "play"){
@@ -522,7 +596,7 @@ function def(button) { // voltar os botões do controle para o padrão durante a
             buttonAnimation.style.border = '4px solid black'
             buttonAnimation.style.top = '-69px'
             buttonAnimation.style.left = '46px'
-            buttonAnimation.style.margin = '0px'
+            buttonAnimation.style.marginTop = '0px'
             break;
         case "Left":
             buttonAnimation = document.querySelector('div#leftButton')
@@ -708,7 +782,7 @@ function interface(tela) {
         case 'off': // Tela inicial
             screen.style.background = 'black'
             var p = document.createElement('p')
-            p.innerText = "Pressione START para jogar"
+            p.innerHTML = "Pressione START para jogar"
             p.setAttribute('id', 'start')
             screen.appendChild(p)
             tv = "off"
